@@ -7,14 +7,45 @@ use Yii;
 use yii\web\Controller;
 use app\models\Signup;
 use app\models\Login;
+use yii\data\Pagination;
+use app\models\Review;
 
 
 class SiteController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $query = Review::find();
+        $pagination = new Pagination([
+            'defaultPageSize' => 3,
+            'totalCount' => $query->count(),
+        ]);
+
+        $reviews = $query->orderBy('date_review')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+            if(!Yii::$app->user->isGuest){
+                $model = new Review();
+            if(isset($_POST['Review']))
+            {
+            $model->attributes = Yii::$app->request->post('Review');
+            if($model->validate())
+            {
+                return $this->redirect(['index']);
+            }
+            }
+        }
+            return $this->render('index', [
+            'reviews' => $reviews,
+            'pagination' => $pagination,
+            'review_model' => $model,
+            'message' => 'Заполните поле!',
+        ]);
     }
+    
+
 
     public function actionLogout()
     {
@@ -27,6 +58,9 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
+        if(!Yii::$app->user->isGuest){
+            $this->goHome();
+        }
         $model = new Signup();
 
         if(isset($_POST['Signup']))

@@ -25,7 +25,16 @@ class Signup extends Model
         $user->username = $this->username;
         $user->pib = $this->pib;
         $user->setPassword($this->password);
-        return $user->save(); //вернет true или false
+        return $user->save();
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'pib' => 'ФИО',
+            'username' => 'Логин',
+            'password' => 'Пароль'
+        ];
     }
 
 }
