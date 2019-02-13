@@ -34,12 +34,9 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-             Yii::$app->user->isGuest ? ('') : (
             Yii::$app->user->identity->admin() ? (
-                ['label' => 'Администрирование', 'url' => ['/admin/']]
-            ) : (['label' => 'Личный кабинет', 'url' => ['/profile/']]
-            )
-            ),
+                ['label' => 'Мои заказы', 'url' => ['/profile/']]
+            ) : ('') ,
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
@@ -53,7 +50,6 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
         )
-           
         ],
     ]);
     NavBar::end();

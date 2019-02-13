@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this \yii\web\modules\profile\views */
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\app;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -34,12 +35,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-             Yii::$app->user->isGuest ? ('') : (
-            Yii::$app->user->identity->admin() ? (
-                ['label' => 'Администрирование', 'url' => ['/admin/']]
-            ) : (['label' => 'Личный кабинет', 'url' => ['/profile/']]
-            )
-            ),
+            ['label' => 'Отзывы', 'url' => ['/admin/review/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
@@ -53,7 +49,6 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
         )
-           
         ],
     ]);
     NavBar::end();

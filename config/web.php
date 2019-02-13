@@ -55,6 +55,14 @@ $config = [
         ],
         */
     ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+        'profile' => [
+            'class' => 'app\modules\profile\Module',
+        ],
+    ],
     'params' => $params,
 ];
 
