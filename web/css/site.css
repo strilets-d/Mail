@@ -1,7 +1,6 @@
 html,
 body {
     height: 100%;
-    background: silver;
 }
 
 .wrap {
@@ -161,6 +160,7 @@ a.desc:after {
     padding:5px;
     background: white;
     border-radius: 10px;
+    border:2px solid #4682B4;
 }
 
 .text

@@ -8,8 +8,8 @@ use yii\web\Controller;
 use app\models\Signup;
 use app\models\Login;
 use yii\data\Pagination;
+use app\models\ReviewForm;
 use app\models\Review;
-
 
 class SiteController extends Controller
 {
@@ -27,12 +27,13 @@ class SiteController extends Controller
             ->limit($pagination->limit)
             ->all();
             if(!Yii::$app->user->isGuest){
-                $model = new Review();
-            if(isset($_POST['Review']))
+                $model = new ReviewForm();
+            if(isset($_POST['ReviewForm']))
             {
-            $model->attributes = Yii::$app->request->post('Review');
-            if($model->validate())
+            $model->attributes = Yii::$app->request->post('ReviewForm');
+            if($model->validate() && $model->review())
             {
+                
                 return $this->redirect(['index']);
             }
             }
@@ -41,7 +42,6 @@ class SiteController extends Controller
             'reviews' => $reviews,
             'pagination' => $pagination,
             'review_model' => $model,
-            'message' => 'Заполните поле!',
         ]);
     }
     

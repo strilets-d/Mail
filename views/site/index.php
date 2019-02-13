@@ -15,9 +15,20 @@ $this->title = 'Почта';
     </div>
 <?php endforeach; ?>
 <?= LinkPager::widget(['pagination' => $pagination]) ?>
-<?php $form = ActiveForm::begin(); ?>
+     <?php $form = ActiveForm::begin([
+        'id' => 'login-form',
+        'layout' => 'horizontal',
+        'fieldConfig' => [
+            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+        ],
+    ]); ?>
 <?= (Yii::$app->user->isGuest) ? '' :  $form->field($review_model,'text')->textInput() ?>
-<?= (Yii::$app->user->isGuest) ? '' : Html::submitButton('Оставить отзыв', ['class' => 'btn btn-primary', 'name' => 'review-button']) ?>
+  <div class="form-group">
+            <div class="col-lg-offset-1 col-lg-11">
+<?= (Yii::$app->user->isGuest) ? '' :  Html::submitButton('Оставить отзыв', ['class' => 'btn btn-primary', 'name' => 'login-button'])?>
+</div>
+</div> 
 <?php $form = ActiveForm::end();?>
 <!--
 Для того чтобы вывести ДРУГИЕ поля из таблицы пользователя, обращайтесь через identity
