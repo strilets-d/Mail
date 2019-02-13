@@ -2,8 +2,10 @@
 
 namespace app\models;
 
+use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+/**
  * This is the model class for table "user".
  *
  * @property int $id
@@ -44,11 +46,11 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'Логин',
             'password' => 'Password',
             'role' => 'Role',
-            'pib' => 'Pib',
-            'image' => 'Image',
+            'pib' => 'ПИБ',
+            'image' => 'Фото',
         ];
     }
 
@@ -99,5 +101,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function admin()
     {
         return $this->role==='admin';
+    }
+
+    public function saveImage($filename)
+    {
+        $this->image = $filename;
+        return $this->save(false);
     }
 }

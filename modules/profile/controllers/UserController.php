@@ -8,7 +8,8 @@ use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use app\models\ImageUpload;
+use yii\web\UploadedFile;
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -127,6 +128,14 @@ class UserController extends Controller
 
     public function actionSetImage()
     {
-        return $this->render('image');;
+        $model = new ImageUpload();
+
+        if(Yii::$app->request->isPost){
+            $user = $this->findModel(Yii::$app->user->identity->id);
+        $file = UploadedFile::getInstance($model, 'image');
+        $user->saveImage($model->uploadFile($file));
+        $this->redirect('http://mail/index.php?r=profile');
+    }
+        return $this->render('image', ['model' => $model]);
     }
 }
