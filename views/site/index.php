@@ -3,11 +3,71 @@ use yii\helpers\Html;
 use yii\bootstrap;
 use yii\widgets\LinkPager;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\NavBar;
+use yii\bootstrap\Nav;
 $this->title = 'Почта';
 ?>
 <title><?= Html::encode($this->title) ?></title>
+<div style="display: inline-flex;">
+<div class="sidebar" style="width:250px; font-style: oblique;">
+<?php
+NavBar::begin();
+echo Nav::widget([
+'options' => ['class' => 'sidebar navbar-default margs'],
+'items' => [
+            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Отследить посылку", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Время доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+
+            ['encode' => false ,'label' =>  Html::img('@web/img/put.png', ['alt'=>'none image', 'style' => ''])." Стоимость доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+
+            ['encode' => false ,'label' =>  Html::img('@web/img/bank.png', ['alt'=>'none image', 'style' => ''])." Ближайшие отделения", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+        ],
+    ]);
+NavBar::end(); 
+?>
+</div>
+<diV style="width: auto;">
+                <aside class="footer-widget">
+
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!--Indicator-->
+                        <ol class="carousel-indicators" style="color:black;">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="single-review">
+                                    <div class="author-id">
+                                        <?= Html::img('@web/img/index.jpg', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="single-review">
+                                    <div class="author-id">
+                                        <?= Html::img('@web/img/index2.png', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="single-review">
+                                    <div class="author-id">
+                                        <?= Html::img('@web/img/index3.jpg', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+</diV>
+<div class="blocks">
+<h3>Здесь может быть ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюда!</a></h3>
+</div>
 <h2>Отзывы о нас:</h2>
-	
 <?php foreach ($reviews as $review): ?>
 	<div class="block">
 	<text style="display:inline-block;"><?= Html::img("@web/img/{$review->getUser()->image}", ['style' => 'width: 40px; height: 40px; margin-left:10px; border-radius:50%;']) ?>  <b><?= Html::encode("{$review->getUser()->username}");?></b>  <text class="data"> <?= Html::encode("{$review->date_review}");?></text></text><br>

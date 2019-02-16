@@ -38,10 +38,12 @@ class SiteController extends Controller
             }
             }
         }
+        $check_model = new ReviewForm();
             return $this->render('index', [
             'reviews' => $reviews,
             'pagination' => $pagination,
             'review_model' => $model,
+            'model' => $check_model,
         ]);
     }
     

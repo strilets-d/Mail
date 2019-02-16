@@ -37,7 +37,7 @@ AppAsset::register($this);
              Yii::$app->user->isGuest ? ('') : (
             Yii::$app->user->identity->admin() ? (
                 ['label' => 'Администрирование', 'url' => ['/admin/']]
-            ) : (['label' => 'Личный кабинет', 'url' => ['/profile/']]
+            ) : (['encode' => false ,'label' =>  Html::img('@web/img/contact.png', ['alt'=>'Личный кабинет', 'style' => 'margin-top:-12px;']), 'url' => ['/profile/']]
             )
             ),
             Yii::$app->user->isGuest ? (
