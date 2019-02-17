@@ -239,8 +239,13 @@ a.desc:after {
     height: 120px;
     text-align: center;
     padding:35px;
-    border-radius: 15px;
 }   
 .blck{
     color:black;
+}
+
+.main_sidebar
+{
+    height:400px;
+    width:22%;
 }

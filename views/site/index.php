@@ -8,15 +8,15 @@ use yii\bootstrap\Nav;
 $this->title = 'Почта';
 ?>
 <title><?= Html::encode($this->title) ?></title>
-<div style="display: inline-flex;">
-<div class="sidebar" style="width:250px; font-style: oblique;">
+<div style="display: inline-flex; width: 100%; height:400px;">
+<div class="sidebar" style="width:25%; font-style: oblique; height: 400px;">
 <?php
-NavBar::begin();
+NavBar::begin(['class' => 'main_sidebar']);
 echo Nav::widget([
 'options' => ['class' => 'sidebar navbar-default margs'],
 'items' => [
-            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Отследить посылку", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
-            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Время доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Отследить посылку", 'url' => ['/mail/search'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Время доставки", 'url' => ['/mail/time'], 'linkOptions' => ['style' => 'color: #000;']],
 
             ['encode' => false ,'label' =>  Html::img('@web/img/put.png', ['alt'=>'none image', 'style' => ''])." Стоимость доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
 
@@ -26,7 +26,7 @@ echo Nav::widget([
 NavBar::end(); 
 ?>
 </div>
-<diV style="width: auto;">
+<div style="width: 75%; height: 400px; background-size: contain;">
                 <aside class="footer-widget">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -40,21 +40,21 @@ NavBar::end();
                             <div class="item active">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index.jpg', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                        <?= Html::img('@web/img/index.jpg', ['style' => 'width:100%; height:400px;']);?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index2.png', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                        <?= Html::img('@web/img/card.png', ['style' => 'width:100%; height:400px;']);?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index3.jpg', ['style' => 'width: 889px; height: 500px; border-radius:15px;']);?>
+                                        <?= Html::img('@web/img/index3.jpg', ['style' => 'width:100%; height:400px;']);?>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@ NavBar::end();
 
                 </aside>
             </div>
-</diV>
+</div>
 <div class="blocks">
 <h3>Здесь может быть ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюда!</a></h3>
 </div>
