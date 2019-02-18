@@ -33,15 +33,15 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
+            ['label' => 'Головна', 'url' => ['/site/index']],
              Yii::$app->user->isGuest ? ('') : (
             Yii::$app->user->identity->admin() ? (
-                ['label' => 'Администрирование', 'url' => ['/admin/']]
-            ) : (['encode' => false ,'label' =>  Html::img('@web/img/contact.png', ['alt'=>'Личный кабинет', 'style' => 'margin-top:-12px;']), 'url' => ['/profile/']]
+                ['label' => 'Адміністрування', 'url' => ['/admin/']]
+            ) : (['encode' => false ,'label' =>  Html::img('@web/img/contact.png', ['alt'=>'Особистий кабінет', 'style' => 'margin-top:-12px;']), 'url' => ['/profile/']]
             )
             ),
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+                ['label' => 'Увійти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

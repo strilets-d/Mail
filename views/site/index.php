@@ -5,7 +5,7 @@ use yii\widgets\LinkPager;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
-$this->title = 'Почта';
+$this->title = 'Пошта';
 ?>
 <title><?= Html::encode($this->title) ?></title>
 <div style="display: inline-flex; width: 100%; height:400px;">
@@ -15,12 +15,12 @@ NavBar::begin(['class' => 'main_sidebar']);
 echo Nav::widget([
 'options' => ['class' => 'sidebar navbar-default margs'],
 'items' => [
-            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Отследить посылку", 'url' => ['/mail/search'], 'linkOptions' => ['style' => 'color: #000;']],
-            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Время доставки", 'url' => ['/mail/time'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Відслідкувати посилку", 'url' => ['/mail/search'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Час доставки", 'url' => ['/mail/time'], 'linkOptions' => ['style' => 'color: #000;']],
 
-            ['encode' => false ,'label' =>  Html::img('@web/img/put.png', ['alt'=>'none image', 'style' => ''])." Стоимость доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/put.png', ['alt'=>'none image', 'style' => ''])." Вартість доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
 
-            ['encode' => false ,'label' =>  Html::img('@web/img/bank.png', ['alt'=>'none image', 'style' => ''])." Ближайшие отделения", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
+            ['encode' => false ,'label' =>  Html::img('@web/img/bank.png', ['alt'=>'none image', 'style' => ''])." Найближче відділення", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
         ],
     ]);
 NavBar::end(); 
@@ -47,7 +47,7 @@ NavBar::end();
                             <div class="item">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/card.png', ['style' => 'width:100%; height:400px;']);?>
+                                        <?= Html::img('@web/img/index2.png', ['style' => 'width:100%; height:400px;']);?>
                                     </div>
                                 </div>
                             </div>
@@ -65,9 +65,9 @@ NavBar::end();
             </div>
 </div>
 <div class="blocks">
-<h3>Здесь может быть ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюда!</a></h3>
+<h3>Тут можем бути ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюди!</a></h3>
 </div>
-<h2>Отзывы о нас:</h2>
+<h2>Відгуки про нас:</h2>
 <?php foreach ($reviews as $review): ?>
 	<div class="block">
 	<text style="display:inline-block;"><?= Html::img("@web/img/{$review->getUser()->image}", ['style' => 'width: 40px; height: 40px; margin-left:10px; border-radius:50%;']) ?>  <b><?= Html::encode("{$review->getUser()->username}");?></b>  <text class="data"> <?= Html::encode("{$review->date_review}");?></text></text><br>
@@ -86,7 +86,7 @@ NavBar::end();
 <?= (Yii::$app->user->isGuest) ? '' :  $form->field($review_model,'text')->textInput() ?>
   <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
-<?= (Yii::$app->user->isGuest) ? '' :  Html::submitButton('Оставить отзыв', ['class' => 'btn btn-primary', 'name' => 'login-button'])?>
+<?= (Yii::$app->user->isGuest) ? '' :  Html::submitButton('Залишити відгук', ['class' => 'btn btn-primary', 'name' => 'login-button'])?>
 </div>
 </div> 
 <?php $form = ActiveForm::end();?>

@@ -5,7 +5,7 @@
  * Date: 18.02.2019
  * Time: 0:00
  */
-$this->title='Калькулятор времени доставки';
+$this->title='Калькулятор часу доставки';
 
 use yii\bootstrap\ActiveForm;
 use \yii\helpers\Html;
@@ -20,20 +20,20 @@ use \yii\helpers\Html;
     ],
 ]);
 $items = [
-    '0' => 'Хмельницкий',
-    '1' => 'Винница',
-    '2'=>'Киев'
+    '0' => 'Хмельницький',
+    '1' => 'Вінниця',
+    '2'=>'Київ'
 ];
 $params = [
-    'prompt' => 'Выберите город'
+    'prompt' => 'Оберіть місто'
 ];
 echo $form->field($model, 'city_one')->dropDownList($items,$params);
 echo $form->field($model, 'city_two')->dropDownList($items,$params);
 ?>
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">
-<?= Html::submitButton('Разсчитать', ['class' => 'btn btn-primary', 'name' => 'calc-button']) ?>
+<?= Html::submitButton('Порахувати', ['class' => 'btn btn-primary', 'name' => 'calc-button']) ?>
     </div>
 </div>
-<h3>Время доставки(дней): 3 </h3>
+<h3>Ціна доставки: 56 грн. </h3>
 <?php $form = ActiveForm::end();?>

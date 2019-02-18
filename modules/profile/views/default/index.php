@@ -18,8 +18,8 @@ $this->title = 'Личный кабинет';
 <br>
 <div class="widget">
 <div>
-<h3>ПИБ: <?=Yii::$app->user->identity->pib ?></h3>
-<h3>Логин: <?=Yii::$app->user->identity->username ?></h3>
+<h3>ПІБ: <?=Yii::$app->user->identity->pib ?></h3>
+<h3>Логін: <?=Yii::$app->user->identity->username ?></h3>
 </div>
 <div >
 <?= '<a class="tooltip" href="http://mail/index.php?r=profile%2Fuser%2Fupdate&id='.Yii::$app->user->identity->id.'">.'.Html::img("@web/img/edit.png", ['style' => 'with:50px; height:50px; ']).'</a>'; ?> 

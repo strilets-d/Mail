@@ -14,8 +14,8 @@ class Login extends Model
     {
         return [
 
-            [['username','password'],'required'],
-            ['password','validatePassword'] 
+            [['username','password'],'required', 'message' => 'Заповніть поле {attribute}'],
+            ['password','validatePassword'],
         ];
     }
 
@@ -27,7 +27,7 @@ class Login extends Model
 
             if(!$user || !$user->validatePassword($this->password))
             {
-                $this->addError($attribute,'Логин или пароль введены неверно1');
+                $this->addError($attribute,'Логін або пароль введено невірно.');
             }
         }
     }
@@ -37,5 +37,12 @@ class Login extends Model
         return User::findOne(['username'=>$this->username]);
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Логін',
+            'password' => 'Пароль',
+        ];
+    }
 
 }

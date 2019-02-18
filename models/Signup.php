@@ -13,7 +13,7 @@ class Signup extends Model
     {
         return [
 
-            [['username','password','pib'],'required'],
+            [['username','password','pib'],'required', 'message' => 'Заповніть поле {attribute}'],
             ['username','unique','targetClass'=>'app\models\User'],
             ['password','string','min'=>2,'max'=>10]
         ];
@@ -31,8 +31,8 @@ class Signup extends Model
     public function attributeLabels()
     {
         return [
-            'pib' => 'ФИО',
-            'username' => 'Логин',
+            'pib' => 'ПІБ',
+            'username' => 'Логін',
             'password' => 'Пароль'
         ];
     }

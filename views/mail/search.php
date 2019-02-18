@@ -23,7 +23,7 @@ $this->title='Поиск';
 <?= $form->field($model,'num_premise')->textInput(['autofocus'=>true]) ?>
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
-            <?= Html::submitButton('Найти', ['class' => 'btn btn-primary', 'name' => 'search-button']) ?>
+            <?= Html::submitButton('Знайти', ['class' => 'btn btn-primary', 'name' => 'search-button']) ?>
         </div>
     </div>
 <?php

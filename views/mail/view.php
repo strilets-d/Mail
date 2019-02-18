@@ -13,29 +13,29 @@ use app\models\Status;
 use app\models\TypePremise;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-$this->title='Информация';
+$this->title='Інформація';
 ?>
     <title><?= Html::encode($this->title) ?></title>
-<h2>Информация о посылке №<?= $order->num_premise ?></h2>
+<h2>Інформація про посилку №<?= $order->num_premise ?></h2>
 <table class="table table-striped table-hover">
     <tr>
-        <td>Отделение отправитель:</td>
+        <td>Відділення відправник:</td>
         <td>№<?= Departments::findOne(['id_department' => $order->id_department])->num_department ?> Адрес: <?= Departments::findOne(['id_department' => $order->id_department])->address_department ?></td>
     </tr>
     <tr>
-        <td>Отделение получатель:</td>
+        <td>Відділення отримувач:</td>
         <td>№<?= Departments::findOne(['id_department' => $order->id_dep_rec])->num_department ?> Адрес: <?= Departments::findOne(['id_department' => $order->id_dep_rec])->address_department ?></td>
     </tr>
     <tr>
-        <td>Номер телефона получателя:</td>
+        <td>Номер телефону отримувача:</td>
         <td>+<?= $order->phone_user ?></td>
     </tr>
     <tr>
-        <td>ПИБ отправителя:</td>
+        <td>ПІБ відправника:</td>
         <td><?= $order->pib_sender ?></td>
     </tr>
     <tr>
-        <td>ПИБ получателя:</td>
+        <td>ПІБ отримувача:</td>
         <td><?= $order->pib_recipient ?></td>
     </tr>
     <tr>
@@ -43,41 +43,41 @@ $this->title='Информация';
         <td><?= $order->weight_premise ?> кг.</td>
     </tr>
     <tr>
-        <td>Длина посылки:</td>
+        <td>Длина посилки:</td>
         <td><?= $order->length_premise ?> см.</td>
     </tr>
     <tr>
-        <td>Ширина посылки:</td>
+        <td>Ширина посилки:</td>
         <td><?= $order->width_premise ?> см.</td>
     </tr>
     <tr>
-        <td>Высота посылки:</td>
+        <td>Висота посилки:</td>
         <td><?= $order->width_premise ?> см.</td>
     </tr>
     <tr>
-        <td>Тип посылки:</td>
+        <td>Тип посилки:</td>
         <td><?= TypePremise::findOne(['id_type' => $order->id_type])->name_type ?></td>
     </tr>
     <tr>
-        <td>Цена посылки:</td>
+        <td>Ціна посилки:</td>
         <td><?= $order->price_premise ?> грн.</td>
     </tr>
     <tr>
-        <td>Цена доставки:</td>
+        <td>Ціна доставки:</td>
         <td><?= $order->price_delivery ?> грн.</td>
     </tr>
     <?php if($order->reverse_delivery == NULL){
         echo "<tr>
-        <td>Обратная доставка:</td>
+        <td>Зворотня доставка:</td>
         <td><input type='checkbox' checked='false'></td>
     </tr>";
     }else {
         echo "<tr>
-        <td>Обратная доставка:</td>
+        <td>Зворотня доставка:</td>
         <td><input type='checkbox' checked='true'></td>
     </tr>";
         echo '<tr>
-        <td>Тип обратной доставки:</td>
+        <td>Тип зворотньої доставки:</td>
         <td>'.ReverseDelivery::findOne(['id_reverse_del' => $order->reverse_delivery])->type_reverse_del.'</td>
     </tr>';
     }
@@ -100,16 +100,16 @@ $this->title='Информация';
     ?>
     <?php if($order->packaging == NULL){
         echo "<tr>
-        <td>Курьер:</td>
+        <td>Кур'єр:</td>
         <td><input type='checkbox' checked='false'></td>
     </tr>";
     }else {
         echo "<tr>
-        <td>Курьер:</td>
+        <td>Кур'єр:</td>
         <td><input type='checkbox' checked='true'></td>
     </tr>";
         echo '<tr>
-        <td>Адрес доставки:</td>
+        <td>Адреса доставки:</td>
         <td>'.$order->address_delivery.'</td>
     </tr>';
     }

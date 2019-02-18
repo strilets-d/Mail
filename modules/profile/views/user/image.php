@@ -6,8 +6,10 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
 /* @var $form yii\widgets\ActiveForm */
+$this->title="Завантаження фото";
 ?>
-
+<title><?= Html::encode($this->title) ?></title>
+<br>
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -15,7 +17,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Зберегти', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

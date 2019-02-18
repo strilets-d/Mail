@@ -16,13 +16,13 @@ class ReviewForm extends Model
 
 	public function rules(){
 		return [
-			['text','required'],
+			['text','required', 'message' => 'Заповніть поле {attribute}'],
 		];
 	}
 
 	public function attributeLabels(){
 		return [
-			'text' => 'Отзыв',
+			'text' => 'Відгук',
 		];
 	}
 

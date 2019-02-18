@@ -20,9 +20,10 @@ class ImageUpload extends Model {
 	}
 
 	public function attributeLabels()
-	{
-		return [
-			'Image' => 'Фото',
-		];
-	}
+    {
+        return [
+            'image' => 'Фото',
+
+        ];
+    }
 }

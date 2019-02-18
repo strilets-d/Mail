@@ -19,6 +19,7 @@ class OrderSearch extends Orders
         return [
             [['id_order', 'num_premise', 'id_department', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'id_dep_rec', 'price_premise', 'price_delivery', 'type_payer', 'reverse_delivery', 'packaging', 'courier', 'status', 'id_user'], 'integer'],
             [['phone_user', 'pib_sender', 'pib_recipient', 'address_delivery'], 'safe'],
+            [['num_premise'], 'required'],
         ];
     }
 
@@ -83,5 +84,13 @@ class OrderSearch extends Orders
             ->andFilterWhere(['like', 'address_delivery', $this->address_delivery]);
 
         return $dataProvider;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'num_premise' => 'Номер посилки',
+
+        ];
     }
 }

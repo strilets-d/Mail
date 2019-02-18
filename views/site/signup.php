@@ -1,13 +1,10 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-$this->title='Регистрация';
+$this->title='Реєстрація';
 ?>
 <title><?= Html::encode($this->title) ?></title>
-<?php
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<h1>Регистрация</h1>
+<h1>Реєстрація</h1>
    <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'layout' => 'horizontal',
@@ -24,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
   <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Зареєструватись', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
         </div>
 <h4>Вже зареєстровані?<a href="index.php?r=site%2Flogin">Увійти!</a></h4>
