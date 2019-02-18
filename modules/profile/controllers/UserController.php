@@ -86,11 +86,9 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect('http://mail/index.php?r=profile');
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);

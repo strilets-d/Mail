@@ -35,4 +35,5 @@ echo $form->field($model, 'city_two')->dropDownList($items,$params);
 <?= Html::submitButton('Разсчитать', ['class' => 'btn btn-primary', 'name' => 'calc-button']) ?>
     </div>
 </div>
+<h3>Время доставки(дней): 3 </h3>
 <?php $form = ActiveForm::end();?>
