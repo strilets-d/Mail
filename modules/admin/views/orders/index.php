@@ -7,16 +7,16 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\OrderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Посилки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orders-index">
-
+    <title><?= Html::encode($this->title)?></title>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Orders', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Створити посилку', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,12 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_order',
+            //'id_order',
             'num_premise',
-            'id_department',
+            //'id_department',
             'phone_user',
             'pib_sender',
-            //'pib_recipient',
+            'pib_recipient',
             //'weight_premise',
             //'length_premise',
             //'width_premise',
@@ -38,13 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id_type',
             //'id_dep_rec',
             //'price_premise',
-            //'price_delivery',
+            'price_delivery',
             //'type_payer',
             //'reverse_delivery',
             //'packaging',
             //'courier',
             //'address_delivery',
-            //'status',
+            'status',
             //'id_user',
 
             ['class' => 'yii\grid\ActionColumn'],

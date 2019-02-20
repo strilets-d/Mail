@@ -30,9 +30,9 @@ class TimeCalculator extends  Model
     public function attributeLabels()
     {
         return [
-            'date' => 'Дата отправки',
-            'city_one' => 'Город отправитель',
-            'city_two' => 'Город получатель',
+            'date' => 'Дата відправки',
+            'city_one' => 'Місто відправник',
+            'city_two' => 'Місто отримувач',
         ];
     }
 }

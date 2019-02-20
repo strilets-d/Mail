@@ -54,7 +54,7 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['num_premise', 'id_department', 'phone_user', 'pib_sender', 'pib_recipient', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'price_premise', 'type_payer', 'courier'], 'required'],
+            [['id_department', 'phone_user', 'pib_sender', 'pib_recipient', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'price_premise', 'type_payer', 'courier'], 'required'],
             [['num_premise', 'id_department', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'id_dep_rec', 'price_premise', 'price_delivery', 'type_payer', 'reverse_delivery', 'packaging', 'courier', 'status', 'id_user'], 'integer'],
             [['phone_user', 'pib_sender', 'pib_recipient', 'address_delivery'], 'string', 'max' => 255],
             [['type_payer'], 'exist', 'skipOnError' => true, 'targetClass' => TypePayer::className(), 'targetAttribute' => ['type_payer' => 'id_payer']],
@@ -74,27 +74,27 @@ class Orders extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_order' => 'Id Order',
-            'num_premise' => 'Num Premise',
-            'id_department' => 'Id Department',
-            'phone_user' => 'Phone User',
-            'pib_sender' => 'Pib Sender',
-            'pib_recipient' => 'Pib Recipient',
-            'weight_premise' => 'Weight Premise',
-            'length_premise' => 'Length Premise',
-            'width_premise' => 'Width Premise',
-            'height_premise' => 'Height Premise',
-            'id_type' => 'Id Type',
-            'id_dep_rec' => 'Id Dep Rec',
-            'price_premise' => 'Price Premise',
-            'price_delivery' => 'Price Delivery',
-            'type_payer' => 'Type Payer',
-            'reverse_delivery' => 'Reverse Delivery',
-            'packaging' => 'Packaging',
-            'courier' => 'Courier',
-            'address_delivery' => 'Address Delivery',
-            'status' => 'Status',
-            'id_user' => 'Id User',
+            'id_order' => 'Id Посилки',
+            'num_premise' => 'Номер посилки',
+            'id_department' => 'Відділення відправник',
+            'phone_user' => 'Телефон',
+            'pib_sender' => 'Прізвище відправника',
+            'pib_recipient' => 'Прізвище отримувача',
+            'weight_premise' => 'Вага посилки',
+            'length_premise' => 'Довжина посилки',
+            'width_premise' => 'Ширина посилки',
+            'height_premise' => 'Висота посилки',
+            'id_type' => 'Тип посилки',
+            'id_dep_rec' => 'Відділення отримувач',
+            'price_premise' => 'Ціна посилки',
+            'price_delivery' => 'Ціна доставки',
+            'type_payer' => 'Платник',
+            'reverse_delivery' => 'Тип зворотньої доставки',
+            'packaging' => 'Тип упаковки',
+            'courier' => 'Курєр',
+            'address_delivery' => 'Адреса доставки',
+            'status' => 'Статус доставки',
+            'id_user' => 'Користувач',
         ];
     }
 
@@ -160,5 +160,69 @@ class Orders extends \yii\db\ActiveRecord
     public function getPackaging0()
     {
         return $this->hasOne(Packaging::className(), ['id_packaging' => 'packaging']);
+    }
+
+    public function getNum($length=8) {
+
+        if($this->num_premise==NULL) {
+            $num= join('', array_map(function($value) { return $value == 1 ? mt_rand(1, 9) : mt_rand(0, 9); }, range(1, $length)));
+            $nums = Orders::find()->where(['num_premise' => $num])->all();
+            while($nums!=NULL){
+                $num= join('', array_map(function($value) { return $value == 1 ? mt_rand(1, 9) : mt_rand(0, 9); }, range(1, $length)));
+                $nums = Orders::find()->where(['num_premise' => $num]);
+            }
+            return $num;
+        }else return $this->num_premise;
+    }
+
+    public function getSum()
+    {
+        $sum = 0;
+        if($this->weight_premise < 6) $sum += $this->weight_premise * 5;
+        if($this->weight_premise < 11) $sum += 25 + 10;
+        if($this->weight_premise < 16) $sum += 25 + 10 + 20;
+        if($this->weight_premise < 21) $sum += 25 + 10 + 20 + 20;
+        if($this->weight_premise < 26) $sum += 25 + 10 + 20 + 20 + 20;
+        if($this->weight_premise > 25) $sum += 25 + 10 + 20 + 20 + 20 + $this->weight_premise * 4;
+        $sum  +=  $this->price_premise / 200;
+        switch ($this->packaging) {
+            case 1:
+                $sum += 10;
+                break;
+                case 2:
+                $sum += 15;
+                break;
+                case 3:
+                $sum += 8;
+                break;
+                case 4:
+                $sum += 30;
+                break;
+                case 5:
+                $sum += 15;
+                break;
+                case 6:
+                $sum += 29;
+                break;
+            default:
+                $sum += 50;
+                break;
+        }
+        if(($this->length_premise<=100 || $this->width_premise<=100 || $this->height_premise<=100))
+        {    
+            $sum += $this->length_premise*0.2+$this->height_premise*0.2+$this->width_premise*0.2;
+        }else 
+        if(($this->length_premise<=200 || $this->width_premise<=200 || $this->height_premise<=200)){
+            $sum +=  $this->length_premise*0.4+$this->height_premise*0.4+$this->width_premise*0.4;
+        }else 
+        if($this->length_premise<=300 || $this->length_premise<=300 || $this->width_premise<=300)
+        {
+            $sum += $this->length_premise*0.7+$this->height_premise*0.7+$this->width_premise*0.7;
+        }else
+        if($this->length_premise>=300 || $this->width_premise>=300 || $this->height_premise>=300)
+        {
+            $sum += $this->length_premise*1.5+$this->height_premise*1.5+$this->width_premise*1.5;
+        }
+        return round($sum);
     }
 }

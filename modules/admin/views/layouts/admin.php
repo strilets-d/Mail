@@ -34,22 +34,22 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Заказы', 'url' => ['/admin/orders/index']],
-            ['label' => 'Отзывы', 'url' => ['/admin/review/index']],
+            ['label' => 'Посилки', 'url' => ['/admin/orders/index']],
+            ['label' => 'Відгуки', 'url' => ['/admin/review/index']],
             ['label' => 'Упаковки', 'url' => ['/admin/packaging/index']],
-            ['label' => 'Отделения', 'url' => ['/admin/departments/index']],
-            ['label' => 'Обратная доставка', 'url' => ['/admin/reverse/index']],
-            ['label' => 'Тип плательщика', 'url' => ['/admin/payer/index']],
-            ['label' => 'Тип посылки', 'url' => ['/admin/premise/index']],
+            ['label' => 'Відділення', 'url' => ['/admin/departments/index']],
+            ['label' => 'Зворотня доставка', 'url' => ['/admin/reverse/index']],
+            ['label' => 'Тип платника', 'url' => ['/admin/payer/index']],
+            ['label' => 'Тип посилки', 'url' => ['/admin/premise/index']],
             ['label' => 'Статус', 'url' => ['/admin/status/index']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+                ['label' => 'Увійти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
 
                 . Html::submitButton(
-                    'Выйти (' . Yii::$app->user->identity->username . ')',
+                    'Вийти (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-primary marg']
                 )
                 . Html::endForm()

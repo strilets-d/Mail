@@ -65,11 +65,14 @@ class OrdersController extends Controller
     public function actionCreate()
     {
         $model = new Orders();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_order]);
-        }
-
+            if(isset($_POST['Orders'])){
+                $model->attributes = Yii::$app->request->post('Orders');
+                $model->num_premise = $model->getNum();
+                $model->price_delivery = $model->getSum();
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id_order]);
+                }
+            }
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -86,9 +89,14 @@ class OrdersController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_order]);
-        }
+        if(isset($_POST['Orders'])){
+                $model->attributes = Yii::$app->request->post('Orders');
+                $model->num_premise = $model->getNum();
+                $model->price_delivery = $model->getSum();
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id_order]);
+                }
+            }
 
         return $this->render('update', [
             'model' => $model,

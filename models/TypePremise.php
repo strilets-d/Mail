@@ -39,8 +39,8 @@ class TypePremise extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_type' => 'Id Type',
-            'name_type' => 'Name Type',
+            'id_type' => 'Id типу',
+            'name_type' => 'Назва типу',
         ];
     }
 

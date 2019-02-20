@@ -10,7 +10,7 @@ $this->title='Калькулятор часу доставки';
 use yii\bootstrap\ActiveForm;
 use \yii\helpers\Html;
 ?>
-<title><? Html::encode($this->title) ?></title>
+<title><?= Html::encode($this->title) ?></title>
 <?php $form = ActiveForm::begin([
     'id' => 'login-form',
     'layout' => 'horizontal',
@@ -35,5 +35,4 @@ echo $form->field($model, 'city_two')->dropDownList($items,$params);
 <?= Html::submitButton('Порахувати', ['class' => 'btn btn-primary', 'name' => 'calc-button']) ?>
     </div>
 </div>
-<h3>Ціна доставки: 56 грн. </h3>
 <?php $form = ActiveForm::end();?>

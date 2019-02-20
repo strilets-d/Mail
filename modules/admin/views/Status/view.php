@@ -7,20 +7,20 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Status */
 
 $this->title = $model->id_status;
-$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Статуси', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="status-view">
-
+    <title><?= Html::encode($this->title) ?></title>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_status], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_status], [
+        <?= Html::a('Оновити', ['update', 'id' => $model->id_status], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Видалити', ['delete', 'id' => $model->id_status], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Ви дійсно хочете видалити цей статус?',
                 'method' => 'post',
             ],
         ]) ?>

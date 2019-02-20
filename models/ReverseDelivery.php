@@ -39,8 +39,8 @@ class ReverseDelivery extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_reverse_del' => 'Id Reverse Del',
-            'type_reverse_del' => 'Type Reverse Del',
+            'id_reverse_del' => 'Id зворотньої доставки',
+            'type_reverse_del' => 'Тип зворотньої доставки',
         ];
     }
 

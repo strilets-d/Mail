@@ -42,9 +42,9 @@ class Departments extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_department' => 'Id Department',
-            'num_department' => 'Num Department',
-            'address_department' => 'Address Department',
+            'id_department' => 'Id відділення',
+            'num_department' => 'Номер відділення',
+            'address_department' => 'Адреса відділення',
         ];
     }
 
@@ -62,5 +62,9 @@ class Departments extends \yii\db\ActiveRecord
     public function getOrders0()
     {
         return $this->hasMany(Orders::className(), ['id_department' => 'id_department']);
+    }
+
+    public function getFullDepartment(){
+        return '№' . $this->num_department . ' ' . $this->address_department;
     }
 }

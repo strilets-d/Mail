@@ -39,8 +39,8 @@ class Packaging extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_packaging' => 'Id Packaging',
-            'type_packaging' => 'Type Packaging',
+            'id_packaging' => 'Id упаковки',
+            'type_packaging' => 'Тип упаковки',
         ];
     }
 

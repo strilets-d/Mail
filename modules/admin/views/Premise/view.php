@@ -7,17 +7,17 @@ use yii\widgets\DetailView;
 /* @var $model app\models\TypePremise */
 
 $this->title = $model->id_type;
-$this->params['breadcrumbs'][] = ['label' => 'Type Premises', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Типи посилок', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="type-premise-view">
-
+    <title><?= Html::encode($this->title) ?></title>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_type], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_type], [
+        <?= Html::a('Оновити', ['update', 'id' => $model->id_type], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Видалити', ['delete', 'id' => $model->id_type], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',

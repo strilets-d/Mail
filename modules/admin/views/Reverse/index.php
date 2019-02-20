@@ -7,16 +7,16 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ReverseSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reverse Deliveries';
+$this->title = 'Зворотні доставки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reverse-delivery-index">
-
+    <title><?= Html::encode($this->title) ?></title>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Reverse Delivery', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Додати зворотню доставку', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

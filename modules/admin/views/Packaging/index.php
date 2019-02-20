@@ -7,16 +7,16 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PackagingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Packagings';
+$this->title = 'Упаковки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="packaging-index">
-
+    <title><?= Html::encode($this->title) ?></title>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Packaging', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Додати упаковку', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

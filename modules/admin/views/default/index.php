@@ -4,9 +4,9 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-$this->title = 'Администрирование';
+$this->title = 'Адміністрування';
 ?>
 <title><?= Html::encode($this->title) ?></title>
 <div class="admin-default-index">
-    <h2>Приветствую  в кабинете администратора, <?= Yii::$app->user->identity->username ?>!</h2>
+    <h2><?= Yii::$app->user->identity->username ?> вітаю в кабінеті адміністратора!</h2>
 </div>

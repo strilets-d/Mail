@@ -39,8 +39,8 @@ class TypePayer extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_payer' => 'Id Payer',
-            'name_payer' => 'Name Payer',
+            'id_payer' => 'Id типу платника',
+            'name_payer' => 'Назва типу платника',
         ];
     }
 

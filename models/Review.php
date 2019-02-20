@@ -44,10 +44,10 @@ class Review extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_review' => 'Id Review',
-            'id_user' => 'Id User',
-            'text_review' => 'Text Review',
-            'date_review' => 'Date Review',
+            'id_review' => 'Id Відгуку',
+            'id_user' => 'Id Користувача',
+            'text_review' => 'Текст відгуку',
+            'date_review' => 'Дата відгуку',
         ];
     }
 
