@@ -19,17 +19,15 @@ use \yii\helpers\Html;
         'labelOptions' => ['class' => 'col-lg-1 control-label'],
     ],
 ]);
-$items = [
-    '0' => 'Хмельницький',
-    '1' => 'Вінниця',
-    '2'=>'Київ'
-];
-$params = [
-    'prompt' => 'Оберіть місто'
-];
-echo $form->field($model, 'city_one')->dropDownList($items,$params);
-echo $form->field($model, 'city_two')->dropDownList($items,$params);
 ?>
+<?= $form->field($model, 'city_one')->dropDownList(
+    \yii\helpers\ArrayHelper::map(\app\models\Cities::find()->all(), 'id_city', 'name_city'),
+    ['prompt' => 'Оберіть місто']
+) ?>
+<?= $form->field($model, 'city_two')->dropDownList(
+    \yii\helpers\ArrayHelper::map(\app\models\Cities::find()->all(), 'id_city', 'name_city'),
+        ['prompt' => 'Оберіть місто']
+) ?>
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">
 <?= Html::submitButton('Порахувати', ['class' => 'btn btn-primary', 'name' => 'calc-button']) ?>

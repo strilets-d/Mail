@@ -8,25 +8,26 @@ use yii\bootstrap\Nav;
 $this->title = 'Пошта';
 ?>
 <title><?= Html::encode($this->title) ?></title>
-<div style="display: inline-flex; width: 100%; height:400px;">
-<div class="sidebar" style="width:25%; font-style: oblique; height: 400px;">
-<?php
-NavBar::begin(['class' => 'main_sidebar']);
-echo Nav::widget([
-'options' => ['class' => 'sidebar navbar-default margs'],
-'items' => [
-            ['encode' => false ,'label' =>  Html::img('@web/img/search.png', ['alt'=>'none image', 'style' => ''])." Відслідкувати посилку", 'url' => ['/mail/search'], 'linkOptions' => ['style' => 'color: #000;']],
-            ['encode' => false ,'label' =>  Html::img('@web/img/calc.png', ['alt'=>'none image', 'style' => ''])." Час доставки", 'url' => ['/mail/time'], 'linkOptions' => ['style' => 'color: #000;']],
-
-            ['encode' => false ,'label' =>  Html::img('@web/img/put.png', ['alt'=>'none image', 'style' => ''])." Вартість доставки", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
-
-            ['encode' => false ,'label' =>  Html::img('@web/img/bank.png', ['alt'=>'none image', 'style' => ''])." Найближче відділення", 'url' => ['#'], 'linkOptions' => ['style' => 'color: #000;']],
-        ],
-    ]);
-NavBar::end(); 
-?>
+<div style="display: inline-flex; width: 100%; height:400px; margin-top:10px;">
+<div  style=" font-style: oblique;">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <a href="index.php?r=mail%2Fsearch"><?= Html::img('@web/img/search.png')?><text style="margin-left:15px;">Відслідкувати посилку</text></a>
+            </li>
+            <li>
+                <a href="index.php?r=mail%2Ftime"><?= Html::img('@web/img/calc.png')?><text style="margin-left:15px;">Час доставки</text></a>
+            </li>
+            <li>
+                <a href="#"><?= Html::img('@web/img/put.png')?><text style="margin-left:15px;">Вартість доставки</text></a>
+            </li>
+            <li>
+                <a href="#"><?= Html::img('@web/img/bank.png')?><text style="margin-left: 15px;">Найближчі відділення</text></a>
+            </li>
+        </ul>
+    </div>
 </div>
-<div style="width: 75%; height: 400px; background-size: contain;">
+<div style="height: 400px; background-size: contain; margin-left:10px;">
                 <aside class="footer-widget">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -40,21 +41,21 @@ NavBar::end();
                             <div class="item active">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index.jpg', ['style' => 'width:100%; height:400px;']);?>
+                                        <?= Html::img('@web/img/index.jpg', ['style' => 'width:100%; height:400px; border-radius:10px;']);?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index2.png', ['style' => 'width:100%; height:400px;']);?>
+                                        <?= Html::img('@web/img/index2.png', ['style' => 'width:100%; height:400px; border-radius:10px;']);?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="single-review">
                                     <div class="author-id">
-                                        <?= Html::img('@web/img/index3.jpg', ['style' => 'width:100%; height:400px;']);?>
+                                        <?= Html::img('@web/img/index3.jpg', ['style' => 'width:100%; height:400px; border-radius:10px;']);?>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +66,7 @@ NavBar::end();
             </div>
 </div>
 <div class="blocks">
-<h3>Тут можем бути ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюди!</a></h3>
+<h3>Тут може бути ваша реклама!<a href="https://www.instagram.com/strilets.d/?hl=ru">Вам сюди!</a></h3>
 </div>
 <h2>Відгуки про нас:</h2>
 <?php foreach ($reviews as $review): ?>

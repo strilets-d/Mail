@@ -11,7 +11,7 @@ namespace app\models;
 
 use yii\base\Model;
 
-class TimeCalculator extends  Model
+class TimeCalculator extends  Cities
 {
     public $date;
     public $city_one;

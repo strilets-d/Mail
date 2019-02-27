@@ -37,7 +37,8 @@ class MailController extends Controller
     {
         $model = new TimeCalculator();
         if(isset($_POST['TimeCalculator'])){
-            var_dump($_POST['TimeCalculator']); die();
+            $model->attributes = Yii::$app->request->post('TimeCalculator');
+            return $this->render('map',['model' => $model]);
         }
         return $this->render('calctime',['model' => $model]);
     }
