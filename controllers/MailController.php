@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 
+use app\models\Cities;
 use app\models\OrderSearch;
 use app\models\TimeCalculator;
 use Yii;
@@ -38,7 +39,10 @@ class MailController extends Controller
         $model = new TimeCalculator();
         if(isset($_POST['TimeCalculator'])){
             $model->attributes = Yii::$app->request->post('TimeCalculator');
-            return $this->render('map',['model' => $model]);
+            //var_dump($model); die();
+            $city1 = Cities::findOne(['id_city' => $model->city_one]);
+            $city2 = Cities::findOne(['id_city' => $model->city_two]);
+            return $this->render('map',['city1' => $city1, 'city2' => $city2]);
         }
         return $this->render('calctime',['model' => $model]);
     }

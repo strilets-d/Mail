@@ -27,7 +27,7 @@ $this->title = 'Пошта';
         </ul>
     </div>
 </div>
-<div style="height: 400px; background-size: contain; margin-left:10px;">
+<div style="height: 400px; background-size: contain; margin-left:10px; width:100%;">
                 <aside class="footer-widget">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
