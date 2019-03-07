@@ -34,8 +34,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Мои заказы', 'url' => ['/profile/default/my']],
+            ['label' => 'Головна', 'url' => ['/site/index']],
+            ['label' => 'Мої замовлення', 'url' => ['/profile/default/my']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login']]
             ) : (
@@ -43,7 +43,7 @@ AppAsset::register($this);
                 . Html::beginForm(['/site/logout'], 'post')
 
                 . Html::submitButton(
-                    'Выйти (' . Yii::$app->user->identity->username . ')',
+                    'Вийти (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-primary marg']
                 )
                 . Html::endForm()
@@ -62,13 +62,6 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

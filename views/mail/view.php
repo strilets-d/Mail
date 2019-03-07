@@ -16,7 +16,8 @@ use yii\bootstrap\ActiveForm;
 $this->title='Інформація';
 ?>
     <title><?= Html::encode($this->title) ?></title>
-<h2>Інформація про посилку №<?= $order->num_premise ?></h2>
+<div class="box-shadow" style="text-align: left; margin-top:20px;">
+<h2 style="width: 100%; text-align:center;">Інформація про посилку №<?= $order->num_premise ?></h2>
 <table class="table table-striped table-hover">
     <tr>
         <td>Відділення відправник:</td>
@@ -119,4 +120,5 @@ $this->title='Інформація';
         <td><?= Status::findOne(['id_status' => $order->status])->name_status?> <?= Html::img('@web/img/'.Status::findOne(['id_status' => $order->status])->image_status) ?></td>
     </tr>
 </table>
+</div>
 

@@ -66,6 +66,7 @@ echo "<script>
          directionsDisplay.setMap(myMap);
          directionsDisplay.setDirections(response);
          var point = response.routes[ 0 ].legs[ 0 ];
+         $( '#travel_data' ).html( '<h2>Час відправки посилок: 21:00 кожного дня. </h2>' );
          $( '#travel_data' ).html( '<h2>Час доставки: ' + point.duration.text + ' (' + point.distance.text + ')</h2>' );
     }
          });

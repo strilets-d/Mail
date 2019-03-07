@@ -14,16 +14,17 @@ use app\models\TypePremise;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
-$this->title='Мої замовлення';
+$this->title='Замовлення';
 ?>
 <title><?= Html::encode($this->title) ?></title>
 <?php
     if($orders!=null)
-    echo "<h2>Ваши заказы.</h2>";
-else echo "<h2>Ваш писок заказов пуст.</h2>";
+    echo "<h2 class='box-shadow' style='margin-top:20px; padding:15px;'>Ваші замовлення</h2>";
+else echo "<h2 class='box-shadow' style='margin-top:20px;'>Ваш список замовлень пустий.</h2>";
 ?>
+<div class="box-shadow" style="margin-top:20px; text-align: left;">
 <?php foreach ($orders as $order){ ?>
-    <h2>Інформація про №<?= $order->num_premise ?></h2>
+    <h2 style="width:100%; text-align:center;">Інформація про №<?= $order->num_premise ?></h2>
     <table class="table table-striped table-hover">
         <tr>
             <td>Відділення відправник:</td>
@@ -127,6 +128,7 @@ else echo "<h2>Ваш писок заказов пуст.</h2>";
         </tr>
     </table>
 <?php }?>
+</div>
 <?= LinkPager::widget(['pagination' => $pagination]) ?>
 
 

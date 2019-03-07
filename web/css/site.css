@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-
+    background: #337ab7;
 }
 
 .wrap {
@@ -234,15 +234,10 @@ a.desc:after {
     }
 
     .blocks
-{
-    margin-top:10px;
-    padding:5px;
+    {
     background: white;
     width:100%;
-    height: 120px;
     text-align: center;
-    border-radius:10px;
-    padding:35px;
 }   
 .blck{
     color:black;
@@ -336,7 +331,13 @@ a.desc:after {
     color: #fff;
     background: none;
 }
-
+.box-shadow {
+    margin:auto;
+    background: white;
+    padding:50px;
+    text-align:center;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

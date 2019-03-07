@@ -11,12 +11,13 @@ use yii\bootstrap\ActiveForm;
 $this->title='Поиск';
 ?>
 <title><?= Html::encode($this->title) ?></title>
+<div class="box-shadow" style="width: 350px; margin-top: 100px;">
 <?php $form = ActiveForm::begin([
     'id' => 'search-form',
     'layout' => 'horizontal',
     'fieldConfig' => [
-        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        'labelOptions' => ['class' => 'col-lg-1 control-label'],
+        'template' => "{label}\n<div >{input}</div>\n<div>{error}</div>",
+        'labelOptions' => ['class' => 'control-label', 'style' => 'margin-bottom: 20px;'],
     ],
 ]); ?>
 
@@ -29,3 +30,4 @@ $this->title='Поиск';
 <?php
 ActiveForm::end();
 ?>
+</div>

@@ -13,14 +13,12 @@ use yii\base\Model;
 
 class TimeCalculator extends  Cities
 {
-    public $date;
     public $city_one;
     public $city_two;
 
     public function rules()
     {
         return [
-            ['date', 'required'],
             ['city_one', 'required'],
             ['city_two', 'required'],
         ];
@@ -30,7 +28,6 @@ class TimeCalculator extends  Cities
     public function attributeLabels()
     {
         return [
-            'date' => 'Дата відправки',
             'city_one' => 'Місто відправник',
             'city_two' => 'Місто отримувач',
         ];
