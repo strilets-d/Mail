@@ -14,7 +14,9 @@ $this->title="Розрахунок часу доставки";
         height: 400px;
     }
 </style>
+<div>Час відправки посилок в 19:00 кожного дня.</div>
 <div id="travel_data">
+
 </div>
 <div id="map">
 </div>
@@ -56,6 +58,7 @@ echo "<script>
          origin: {lat: ".$city1->lat. ", lng: ".$city1->lng."},
          destination: {lat: ".$city2->lat. ", lng: ".$city2->lng."},
             travelMode: 'DRIVING',
+            travelMode: 'DRIVING',
         
          };
          directionsService.route(request, function(response,status) {
@@ -66,7 +69,6 @@ echo "<script>
          directionsDisplay.setMap(myMap);
          directionsDisplay.setDirections(response);
          var point = response.routes[ 0 ].legs[ 0 ];
-         $( '#travel_data' ).html( '<h2>Час відправки посилок: 21:00 кожного дня. </h2>' );
          $( '#travel_data' ).html( '<h2>Час доставки: ' + point.duration.text + ' (' + point.distance.text + ')</h2>' );
     }
          });

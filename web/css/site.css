@@ -1,7 +1,8 @@
 html,
 body {
     height: 100%;
-    background: #337ab7;
+    background: url('silver.jpg');/*#337ab7;*/
+    background-size:contain;
 }
 
 .wrap {
