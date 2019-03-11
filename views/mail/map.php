@@ -14,11 +14,17 @@ $this->title="Розрахунок часу доставки";
         height: 400px;
     }
 </style>
-<div>Час відправки посилок в 19:00 кожного дня.</div>
+</style>
+<div class="box-shadow" style="padding:10px; text-align:left; margin-top:30px;">
+<div id="data1" ></div>
+<h2>Час відправки посилок в 21:00 кожного дня.</h2>
 <div id="travel_data">
-
+<div id="data2" ></div>
 </div>
+</div>
+<div class="box-shadow" style="margin-top:30px; padding:20px;">
 <div id="map">
+</div>
 </div>
 <?php
 echo "<script>
@@ -58,7 +64,6 @@ echo "<script>
          origin: {lat: ".$city1->lat. ", lng: ".$city1->lng."},
          destination: {lat: ".$city2->lat. ", lng: ".$city2->lng."},
             travelMode: 'DRIVING',
-            travelMode: 'DRIVING',
         
          };
          directionsService.route(request, function(response,status) {
@@ -72,6 +77,12 @@ echo "<script>
          $( '#travel_data' ).html( '<h2>Час доставки: ' + point.duration.text + ' (' + point.distance.text + ')</h2>' );
     }
          });
+         var d = new Date();
+         var curr_date = d.getDate();
+         var curr_month = d.getMonth() + 1;
+         if(curr_month<10){curr_month='0'+curr_month;}
+         var curr_year = d.getFullYear();
+         $( '#data1' ).html( '<h2>Дата віправки:'+curr_date + '.' + curr_month + '.' + curr_year + '</h2>' );
          }
 </script>";
 ?>
