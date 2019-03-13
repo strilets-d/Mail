@@ -19,8 +19,8 @@ $this->title="Розрахунок часу доставки";
 <div id="data1" ></div>
 <h2>Час відправки посилок в 21:00 кожного дня.</h2>
 <div id="travel_data">
-<div id="data2" ></div>
 </div>
+<div id="travel_date" ></div>
 </div>
 <div class="box-shadow" style="margin-top:30px; padding:20px;">
 <div id="map">
@@ -74,7 +74,20 @@ echo "<script>
          directionsDisplay.setMap(myMap);
          directionsDisplay.setDirections(response);
          var point = response.routes[ 0 ].legs[ 0 ];
-         $( '#travel_data' ).html( '<h2>Час доставки: ' + point.duration.text + ' (' + point.distance.text + ')</h2>' );
+         $('#travel_data' ).html( '<h2>Час доставки: ' + point.duration.text + ' (' + point.distance.text + ')</h2>' );
+         var ds = new Date();
+         var dur_date = ds.getDate();
+         var dur_month = ds.getMonth() + 1;
+         if(dur_month<10){dur_month='0'+dur_month;}
+         var dur_year = ds.getFullYear();
+         var time = Number(point.duration.text.substr(0,2));
+         if(time < 10){
+         dur_date = String(Number(dur_date)+1);
+         }else 
+             {
+                  dur_date = String(Number(dur_date)+2);
+             }
+           $('#travel_date').html('<h2>Забрати посилку зможете: '+dur_date + '.' + dur_month + '.' + dur_year + '</h2>' );
     }
          });
          var d = new Date();
