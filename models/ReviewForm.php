@@ -22,7 +22,7 @@ class ReviewForm extends Model
 
 	public function attributeLabels(){
 		return [
-			'text' => 'Відгук',
+			'text' => 'Текст відгуку',
 		];
 	}
 

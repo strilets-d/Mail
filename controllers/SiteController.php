@@ -26,32 +26,28 @@ class SiteController extends Controller
             ->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();
-            if(!Yii::$app->user->isGuest){
-                $model = new ReviewForm();
-            if(isset($_POST['ReviewForm']))
-            {
-            $model->attributes = Yii::$app->request->post('ReviewForm');
-            if($model->validate() && $model->review())
-            {
-                $this->goHome();
-            }
+        if (!Yii::$app->user->isGuest) {
+            $model = new ReviewForm();
+            if (isset($_POST['ReviewForm'])) {
+                $model->attributes = Yii::$app->request->post('ReviewForm');
+                if ($model->validate() && $model->review()) {
+                    $this->goHome();
+                }
             }
         }
         $check_model = new ReviewForm();
-            return $this->render('index', [
+        return $this->render('index', [
             'reviews' => $reviews,
             'pagination' => $pagination,
             'review_model' => $model,
             'model' => $check_model,
         ]);
     }
-    
 
 
     public function actionLogout()
     {
-        if(!Yii::$app->user->isGuest)
-        {
+        if (!Yii::$app->user->isGuest) {
             Yii::$app->user->logout();
             return $this->redirect(['login']);
         }
@@ -59,45 +55,57 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        if(!Yii::$app->user->isGuest){
+        if (!Yii::$app->user->isGuest) {
             $this->goHome();
         }
         $model = new Signup();
 
-        if(isset($_POST['Signup']))
-        {
+        if (isset($_POST['Signup'])) {
             $model->attributes = Yii::$app->request->post('Signup');
 
-            if($model->validate() && $model->signup())
-            {
+            if ($model->validate() && $model->signup()) {
                 return $this->redirect(['index']);
             }
         }
 
-        return $this->render('signup',['model'=>$model]);
+        return $this->render('signup', ['model' => $model]);
     }
 
     public function actionLogin()
     {
-        if(!Yii::$app->user->isGuest)
-        {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $login_model = new Login();
 
-        if( Yii::$app->request->post('Login'))
-        {
+        if (Yii::$app->request->post('Login')) {
             $login_model->attributes = Yii::$app->request->post('Login');
 
-            if($login_model->validate())
-            {
+            if ($login_model->validate()) {
                 Yii::$app->user->login($login_model->getUser());
                 return $this->goHome();
             }
         }
 
-        return $this->render('login',['login_model'=>$login_model]);
+        return $this->render('login', ['login_model' => $login_model]);
     }
 
+    public function actionReviews()
+    {
+        $query = Review::find();
+        $pagination = new Pagination([
+            'defaultPageSize' => 3,
+            'totalCount' => $query->count(),
+        ]);
+
+        $reviews = $query->orderBy('date_review')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        return $this->render('reviews', [
+            'reviews' => $reviews,
+            'pagination' => $pagination
+        ]);
+    }
 }

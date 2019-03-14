@@ -20,7 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
 </head>
-<body>
+<body style="min-height: 100%;">
 <?php $this->beginBody() ?>
 <div class="wrap">
     <?php
@@ -37,7 +37,7 @@ AppAsset::register($this);
             ['label' => 'Головна', 'url' => ['/site/index']],
             ['label' => 'Мої замовлення', 'url' => ['/profile/default/my']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['/site/login']]
+                ['label' => 'Увійти', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

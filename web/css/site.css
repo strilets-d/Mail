@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic);
+*, *:before, *:after{box-sizing:border-box}
 html,
 body {
     background-color: #935d8c;
@@ -8,6 +10,34 @@ body {
     background-image: url("img/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
     /*background: url('maiil.jpg');#337ab7;
     background-size:contain;*/
+    font-family: 'Didact Gothic', sans-serif;
+    color: #555555;
+    font-size: 14px;
+    line-height: 22px;
+}
+h1,h2{
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #333333;
+}
+
+.bg-blur{
+    background: url("img/blvck.jpg");
+    filter: blur(5px);
+    z-index:99;
+}
+
+.inst{
+    color:white;
+}
+.inst:hover{
+    color: #e37682;
+    text-decoration: none;
+
 }
 
 .wrap {
@@ -137,7 +167,6 @@ a.desc:after {
     margin-left:20px;
     color:white;
     font-style: oblique;
-    transform: skewX(35deg);
     margin-top:10px;
 }
 
@@ -175,6 +204,52 @@ img:hover{
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+
+.buttonmain{
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    transition: .5s;
+}
+
+.learn{
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    color: black;
+    padding: 10px 15px;
+    margin: 20px 5px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: white;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    transition: .5s;
+}
+
+.buttonmain:hover{
+    background-position: right center;
+    text-decoration: none;
+    color:white;
+}
+
+.learn:hover{
+    background-position: right center;
+    background: silver;
+    text-decoration: none;
 }
 
 .block
