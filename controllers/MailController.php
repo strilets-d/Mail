@@ -5,6 +5,7 @@ namespace app\controllers;
 
 use app\models\Cities;
 use app\models\OrderSearch;
+use app\models\PriceCalc;
 use app\models\TimeCalculator;
 use Yii;
 use yii\web\Controller;
@@ -45,5 +46,12 @@ class MailController extends Controller
             return $this->render('map',['city1' => $city1, 'city2' => $city2]);
         }
         return $this->render('calctime',['model' => $model]);
+    }
+
+    public function actionPrice(){
+        $model = new PriceCalc();
+        return $this->render('price',[
+            'model' => $model,
+        ]);
     }
 }

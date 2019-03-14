@@ -67,4 +67,8 @@ class Departments extends \yii\db\ActiveRecord
     public function getFullDepartment(){
         return '№' . $this->num_department . ' ' . $this->address_department;
     }
+
+    public function getCount(){
+        return count(Departments::find()->all());
+    }
 }

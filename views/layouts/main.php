@@ -12,7 +12,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" >
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@ AppAsset::register($this);
         'brandLabel' => '<text class="margin"><text class="margtop">'.Html::img('@web/img/brandicon.png', ['alt'=>Yii::$app->name]).'</text><text class="margleft">'.Yii::$app->name.'</text></text>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top navmy',
         ],
     ]);
     echo Nav::widget([

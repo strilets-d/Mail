@@ -30,7 +30,7 @@ class ReviewForm extends Model
 		 $review = new Review();
         $review->id_user = Yii::$app->user->identity->id;
         $review->text_review = $this->text;
-        $review->save();
+        return $review->save();
 	}
 
 }

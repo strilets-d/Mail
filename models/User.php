@@ -108,4 +108,9 @@ class User extends ActiveRecord implements IdentityInterface
         $this->image = $filename;
         return $this->save(false);
     }
+
+    public function getCount(){
+
+        return count(User::find()->all());
+    }
 }

@@ -225,4 +225,8 @@ class Orders extends \yii\db\ActiveRecord
         }
         return round($sum);
     }
+
+    public function getCount(){
+        return count(Orders::find()->all());
+    }
 }

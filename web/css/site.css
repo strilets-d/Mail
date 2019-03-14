@@ -1,8 +1,13 @@
 html,
 body {
-    height: 100%;
-    background: url('maiil.jpg');/*#337ab7;*/
-    background-size:contain;
+    background-color: #935d8c;
+    min-height: 100%;
+    background-image: url("img/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("img/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("img/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    background-image: url("img/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    /*background: url('maiil.jpg');#337ab7;
+    background-size:contain;*/
 }
 
 .wrap {
@@ -78,6 +83,7 @@ a.desc:after {
     white-space: nowrap;
 }
 
+
 .hint-block {
     display: block;
     margin-top: 5px;
@@ -144,17 +150,32 @@ a.desc:after {
 {
     margin-top:-10px;
 }
+li {
+    list-style-type: none;
 
+}
 .fontt{
     font-style: oblique;
 }
 
-
+.first{
+    background: url("img/first.jpg");
+}
 .data
 {
   margin-left:10px;
 }
+img {
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+}
 
+img:hover{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
 
 .block
 {
@@ -163,6 +184,16 @@ a.desc:after {
     background: white;
     border-radius: 10px;
     border:2px solid #4682B4;
+}
+
+.link{
+    text-decoration: none;
+    color:black;
+}
+
+.link:hover {
+    text-decoration: none;
+    color:black;
 }
 
 .text

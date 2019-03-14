@@ -33,8 +33,7 @@ class SiteController extends Controller
             $model->attributes = Yii::$app->request->post('ReviewForm');
             if($model->validate() && $model->review())
             {
-                
-                return $this->redirect(['index']);
+                $this->goHome();
             }
             }
         }
