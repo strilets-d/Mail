@@ -18,7 +18,7 @@ class DepartmentsSearch extends Departments
     {
         return [
             [['id_department', 'num_department'], 'integer'],
-            [['address_department'], 'safe'],
+            [['address_department', 'lat', 'lng'], 'safe'],
         ];
     }
 
@@ -62,7 +62,9 @@ class DepartmentsSearch extends Departments
             'num_department' => $this->num_department,
         ]);
 
-        $query->andFilterWhere(['like', 'address_department', $this->address_department]);
+        $query->andFilterWhere(['like', 'address_department', $this->address_department])
+            ->andFilterWhere(['like', 'lat', $this->lat])
+            ->andFilterWhere(['like', 'lng', $this->lng]);
 
         return $dataProvider;
     }

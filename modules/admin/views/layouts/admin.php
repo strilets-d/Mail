@@ -27,10 +27,10 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '<text class="margin"><text class="margtop">'.Html::img('@web/img/brandicon.png', ['alt'=>Yii::$app->name]).'</text><text class="margleft">'.Yii::$app->name.'</text></text>',
+        'brandLabel' => '<text class="margin"><text class="margtop">'.Html::img('@web/img/brandicon.png', ['style' => 'width:50px;']).'</text><text class="margleft">'.Yii::$app->name.'</text></text>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top mynav',
         ],
     ]);
     echo Nav::widget([

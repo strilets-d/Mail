@@ -4,6 +4,7 @@ namespace app\controllers;
 
 
 use app\models\Cities;
+use app\models\Departments;
 use app\models\OrderSearch;
 use app\models\PriceCalc;
 use app\models\TimeCalculator;
@@ -50,8 +51,25 @@ class MailController extends Controller
 
     public function actionPrice(){
         $model = new PriceCalc();
+        $sum = NULL;
+        if(isset($_POST['PriceCalc'])){
+            $model->attributes = Yii::$app->request->post('PriceCalc');
+            $sum = $model->setPrice();
+            return $this->render('price',[
+                'model' => $model,
+                'sum' => $sum
+            ]);
+        }
         return $this->render('price',[
             'model' => $model,
+            'sum' => $sum
+        ]);
+    }
+
+    public function actionDepartment(){
+        $departments = Departments::find()->all();
+        return $this->render('department',[
+            'departments' => $departments
         ]);
     }
 }

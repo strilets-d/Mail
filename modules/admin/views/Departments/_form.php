@@ -16,8 +16,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'address_department')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'lat')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'lng')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
-        <?= Html::submitButton('Зберегти', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

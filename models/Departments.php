@@ -10,6 +10,8 @@ use Yii;
  * @property int $id_department
  * @property int $num_department
  * @property string $address_department
+ * @property string $lat
+ * @property string $lng
  *
  * @property Orders[] $orders
  * @property Orders[] $orders0
@@ -30,9 +32,10 @@ class Departments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['num_department', 'address_department'], 'required'],
+            [['num_department', 'address_department', 'lat', 'lng'], 'required'],
             [['num_department'], 'integer'],
-            [['address_department'], 'string', 'max' => 255],
+            [['address_department', 'lat'], 'string', 'max' => 255],
+            [['lng'], 'string', 'max' => 25],
         ];
     }
 
@@ -42,9 +45,11 @@ class Departments extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_department' => 'Id відділення',
-            'num_department' => 'Номер відділення',
-            'address_department' => 'Адреса відділення',
+            'id_department' => 'Id Department',
+            'num_department' => 'Num Department',
+            'address_department' => 'Address Department',
+            'lat' => 'Lat',
+            'lng' => 'Lng',
         ];
     }
 
@@ -64,11 +69,8 @@ class Departments extends \yii\db\ActiveRecord
         return $this->hasMany(Orders::className(), ['id_department' => 'id_department']);
     }
 
-    public function getFullDepartment(){
-        return '№' . $this->num_department . ' ' . $this->address_department;
-    }
-
-    public function getCount(){
+    public function getCount()
+    {
         return count(Departments::find()->all());
     }
 }

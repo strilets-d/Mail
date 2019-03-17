@@ -24,20 +24,20 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '<text class="margin"><text class="margtop">'.Html::img('@web/img/brandicon.png', ['alt'=>Yii::$app->name]).'</text><text class="margleft">'.Yii::$app->name.'</text></text>',
+        'brandLabel' => '<text class="margin"><text class="margtop">'.Html::img('@web/img/brandicon.png', ['style' => 'width:50px;']).'</text><text class="margleft">'.Yii::$app->name.'</text></text>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top navmy',
+            'class' => 'navbar-inverse navbar-fixed-top mynav',
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right my'],
         'items' => [
             ['label' => 'Головна', 'url' => ['/site/index']],
              Yii::$app->user->isGuest ? ('') : (
             Yii::$app->user->identity->admin() ? (
                 ['label' => 'Адміністрування', 'url' => ['/admin/']]
-            ) : (['encode' => false ,'label' =>  'Мій кабінет', 'url' => ['/profile/']]
+            ) : (['encode' => false ,'label' =>  'Мій кабінет', 'url' => ['/profile/'], ['class' => 'myButton']]
             )
             ),
             Yii::$app->user->isGuest ? (
@@ -48,7 +48,7 @@ AppAsset::register($this);
 
                 . Html::submitButton(
                     'Вийти (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-primary marg']
+                    ['class' => 'btn marg']
                 )
                 . Html::endForm()
                 . '</li>'
