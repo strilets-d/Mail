@@ -28,6 +28,7 @@ use Yii;
  * @property string $address_delivery
  * @property int $status
  * @property int $id_user
+ * @property string $date_order
  *
  * @property TypePayer $typePayer
  * @property Departments $depRec
@@ -56,7 +57,7 @@ class Orders extends \yii\db\ActiveRecord
         return [
             [['id_department', 'phone_user', 'pib_sender', 'pib_recipient', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'price_premise', 'type_payer', 'courier'], 'required'],
             [['num_premise', 'id_department', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'id_dep_rec', 'price_premise', 'price_delivery', 'type_payer', 'reverse_delivery', 'packaging', 'courier', 'status', 'id_user'], 'integer'],
-            [['phone_user', 'pib_sender', 'pib_recipient', 'address_delivery'], 'string', 'max' => 255],
+            [['phone_user', 'pib_sender', 'pib_recipient', 'address_delivery', 'date_order'], 'string', 'max' => 255],
             [['type_payer'], 'exist', 'skipOnError' => true, 'targetClass' => TypePayer::className(), 'targetAttribute' => ['type_payer' => 'id_payer']],
             [['id_dep_rec'], 'exist', 'skipOnError' => true, 'targetClass' => Departments::className(), 'targetAttribute' => ['id_dep_rec' => 'id_department']],
             [['id_department'], 'exist', 'skipOnError' => true, 'targetClass' => Departments::className(), 'targetAttribute' => ['id_department' => 'id_department']],
@@ -95,6 +96,7 @@ class Orders extends \yii\db\ActiveRecord
             'address_delivery' => 'Адреса доставки',
             'status' => 'Статус доставки',
             'id_user' => 'Користувач',
+            'date_order' => 'Дата доставки'
         ];
     }
 
@@ -161,7 +163,6 @@ class Orders extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Packaging::className(), ['id_packaging' => 'packaging']);
     }
-
     public function getNum($length=8) {
 
         if($this->num_premise==NULL) {
@@ -189,19 +190,19 @@ class Orders extends \yii\db\ActiveRecord
             case 1:
                 $sum += 10;
                 break;
-                case 2:
+            case 2:
                 $sum += 15;
                 break;
-                case 3:
+            case 3:
                 $sum += 8;
                 break;
-                case 4:
+            case 4:
                 $sum += 30;
                 break;
-                case 5:
+            case 5:
                 $sum += 15;
                 break;
-                case 6:
+            case 6:
                 $sum += 29;
                 break;
             default:
@@ -209,20 +210,20 @@ class Orders extends \yii\db\ActiveRecord
                 break;
         }
         if(($this->length_premise<=100 || $this->width_premise<=100 || $this->height_premise<=100))
-        {    
+        {
             $sum += $this->length_premise*0.2+$this->height_premise*0.2+$this->width_premise*0.2;
-        }else 
-        if(($this->length_premise<=200 || $this->width_premise<=200 || $this->height_premise<=200)){
-            $sum +=  $this->length_premise*0.4+$this->height_premise*0.4+$this->width_premise*0.4;
-        }else 
-        if($this->length_premise<=300 || $this->length_premise<=300 || $this->width_premise<=300)
-        {
-            $sum += $this->length_premise*0.7+$this->height_premise*0.7+$this->width_premise*0.7;
         }else
-        if($this->length_premise>=300 || $this->width_premise>=300 || $this->height_premise>=300)
-        {
-            $sum += $this->length_premise*1.5+$this->height_premise*1.5+$this->width_premise*1.5;
-        }
+            if(($this->length_premise<=200 || $this->width_premise<=200 || $this->height_premise<=200)){
+                $sum +=  $this->length_premise*0.4+$this->height_premise*0.4+$this->width_premise*0.4;
+            }else
+                if($this->length_premise<=300 || $this->length_premise<=300 || $this->width_premise<=300)
+                {
+                    $sum += $this->length_premise*0.7+$this->height_premise*0.7+$this->width_premise*0.7;
+                }else
+                    if($this->length_premise>=300 || $this->width_premise>=300 || $this->height_premise>=300)
+                    {
+                        $sum += $this->length_premise*1.5+$this->height_premise*1.5+$this->width_premise*1.5;
+                    }
         return round($sum);
     }
 

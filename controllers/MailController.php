@@ -26,9 +26,15 @@ class MailController extends Controller
         if(isset($_POST['OrderSearch'])){
             $model->attributes = Yii::$app->request->post('OrderSearch');
             $order = Orders::findOne(['num_premise' => $model->num_premise]);
-            if(Yii::$app->user->identity->id != NULL) {
-                $order->id_user = Yii::$app->user->identity->id;
-                $order->save();
+            $index = 0;
+            if($order == NULL){
+                $index = 1;
+                return $this->render('search', ['model' => $model,'index' => $index]);
+            }else {
+                if (Yii::$app->user->identity->id != NULL) {
+                    $order->id_user = Yii::$app->user->identity->id;
+                    $order->save();
+                }
             }
              return $this->render('view', ['order' => $order]);
         }

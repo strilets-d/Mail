@@ -26,11 +26,18 @@ $this->title = "Відділення";
         </div>
     </div>
     <h2>Оберіть відділення, щоб подивитись на нього на карті:</h2>
-    <select style="width: 200px; margin:20px;" id="choose">
-        <?php foreach ($departments as $d => $item): ?>
-            <option value="<?= $d ?>"><?= $item->num_department ?></option>
-        <?php endforeach; ?>
-    </select>
+    <div class='select-button'>
+        <button class='button'>
+            Відділення
+        </button>
+        <select class='select-button__select' id="choose">
+            <option>Виберіть відділення</option>
+            <?php foreach ($departments as $d => $item): ?>
+                <option value="<?= $d ?>"><?= $item->num_department ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
 </div>
 <div class="box-shadow" style="margin-top:30px; padding:20px;">
     <div id="map">

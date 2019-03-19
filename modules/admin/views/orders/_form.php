@@ -1,6 +1,5 @@
 <?php
 
-use app\models\Departments;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -8,7 +7,6 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Orders */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
 <div class="orders-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -56,13 +54,13 @@ use yii\widgets\ActiveForm;
     ) ?>
     <?php
     $items = [
-      '0' => 'Ні',
-      '1' => 'Так'
+        '0' => 'Ні',
+        '1' => 'Так'
     ];
     ?>
 
     <?= $form->field($model, 'courier')->dropDownList(
-            $items
+        $items
     ) ?>
 
     <?= $form->field($model, 'address_delivery')->textInput(['maxlength' => true]) ?>
@@ -73,7 +71,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'price_delivery')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'id_user')->dropDownList(
         \yii\helpers\ArrayHelper::map(\app\models\User::find()->where(['role' => 'user'])->all(), 'id', 'username'),
-            ['prompt' => 'Обиріть користувача( не обовязково)']
+        ['prompt' => 'Оберіть користувача( не обовязково)']
     ) ?>
     <div class="form-group">
         <?= Html::submitButton('Зберегти', ['class' => 'btn btn-success']) ?>
