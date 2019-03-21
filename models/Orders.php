@@ -29,7 +29,7 @@ use Yii;
  * @property int $status
  * @property int $id_user
  * @property string $date_order
- *
+ * @property int $id_moder
  * @property TypePayer $typePayer
  * @property Departments $depRec
  * @property Departments $department
@@ -56,7 +56,7 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             [['id_department', 'phone_user', 'pib_sender', 'pib_recipient', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'price_premise', 'type_payer', 'courier'], 'required'],
-            [['num_premise', 'id_department', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'id_dep_rec', 'price_premise', 'price_delivery', 'type_payer', 'reverse_delivery', 'packaging', 'courier', 'status', 'id_user'], 'integer'],
+            [['num_premise', 'id_department', 'weight_premise', 'length_premise', 'width_premise', 'height_premise', 'id_type', 'id_dep_rec', 'price_premise', 'price_delivery', 'type_payer', 'reverse_delivery', 'packaging', 'courier', 'status', 'id_user', 'id_moder'], 'integer'],
             [['phone_user', 'pib_sender', 'pib_recipient', 'address_delivery', 'date_order'], 'string', 'max' => 255],
             [['type_payer'], 'exist', 'skipOnError' => true, 'targetClass' => TypePayer::className(), 'targetAttribute' => ['type_payer' => 'id_payer']],
             [['id_dep_rec'], 'exist', 'skipOnError' => true, 'targetClass' => Departments::className(), 'targetAttribute' => ['id_dep_rec' => 'id_department']],

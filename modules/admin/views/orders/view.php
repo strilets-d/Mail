@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Накладна', ['check', 'id' => $model->id_order], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([

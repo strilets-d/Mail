@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+use kartik\report\Report;
 
 $config = [
     'id' => 'basic',
@@ -15,6 +16,17 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'report' => [
+            'class' => Report::classname(),
+            'apiKey' => '4hgpfxsf862u6c2ucj475eui',
+            'templateId' => 1558, // optional: the numeric identifier for your default global template
+            'outputAction' => Report::ACTION_FORCE_DOWNLOAD, // or Report::ACTION_GET_DOWNLOAD_URL
+            'outputFileType' => Report::OUTPUT_PDF, // or Report::OUTPUT_DOCX
+            'outputFileName' => 'Naklanda.pdf', // a default file name if
+            'defaultTemplateVariables' => [ // any default data you desire to always default
+                'companyName' => 'Mail.com'
+            ]
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'mdKolFPB6jddO4X1iQN_ezxv1ZXQb4YZ',

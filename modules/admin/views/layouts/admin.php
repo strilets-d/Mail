@@ -36,11 +36,12 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+                ['label' => 'Працівники', 'url' => ['/admin/default/moders']],
             ['label' => 'Посилки', 'url' => ['/admin/orders/index']],
             ['label' => 'Відгуки', 'url' => ['/admin/review/index']],
             ['label' => 'Упаковки', 'url' => ['/admin/packaging/index']],
             ['label' => 'Відділення', 'url' => ['/admin/departments/index']],
-            ['label' => 'Зворотня доставка', 'url' => ['/admin/reverse/index']],
+            ['label' => 'Зворотня', 'url' => ['/admin/reverse/index']],
             ['label' => 'Тип платника', 'url' => ['/admin/payer/index']],
             ['label' => 'Тип посилки', 'url' => ['/admin/premise/index']],
             ['label' => 'Статус', 'url' => ['/admin/status/index']],
